@@ -26,6 +26,7 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
+// 新規登録
 Route::get('/added', 'Auth\RegisterController@added');
 
 
