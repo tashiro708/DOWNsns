@@ -63,6 +63,10 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'update' => [
+            'driver' => 'local',
+            'root' => public_path(),
+        ],
     ],
 
 ];

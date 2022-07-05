@@ -5,5 +5,90 @@ html{
 }
 body{
     height: 100%;
-    background: #3C4767;
+    background-image: linear-gradient(#3C4767 , #de3400); 
+}
+
+.start-two {
+    height: 180px;
+    width: 300px ;
+    margin: auto ;
+}
+
+/* ログイン画面 */
+.start-puru {
+    /* background-color: rgba(255,255,255,0.5); */
+    background-color: rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+    width: 300px ;
+    height: 430px ;
+}
+
+.user-group {
+    margin:20px;
+} 
+
+.start-puru p {
+    margin: 50px 50px ;
+    padding-top: 30px ;
+    font-size: 15px ;
+}
+
+.login-puru {
+    margin-top: 20px ;
+    margin-left: 100px;
+}
+
+.usertype {
+    margin: 10px 50px;
+}
+
+/* 新規登録 */
+.start-group {
+    /* background-color: rgba(255,255,255,0.5); */
+    background-color: rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+    width: 290px ;
+    height: 530px ;
+}
+
+.start-group p {
+    margin: 50px 50px ;
+    padding-top: 30px ;
+    font-size: 15px ;
+}
+
+.input {
+    margin: 0.5px 20px ;
+}
+
+.login-form {
+    margin: 50px 72px ;
+}
+
+.login-form a {
+    display: block ;
+    margin: 40px 0.1px ;
+}
+
+/* ログイン完了 */
+
+.completion-form {
+    /* margin: auto ; */
+    margin: 150px 555px ;
+}
+
+.completion {
+    background-color: rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+    width: 300px ;
+    height: 300px ;
+}
+
+.completion p {
+    margin: 25px 25px ;
+    padding-top: 15px ;
+    font-size: 15px ;
+}
+.completion a {
+    margin: 25px 25px 25px 85px ;
 }

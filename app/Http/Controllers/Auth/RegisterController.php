@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest');//ログインしているか、していないか
     }
 
     /**
@@ -48,10 +48,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        return Validator::make($data, [ //make=validatorかける
             'username' => 'required|string|max:255',
             'mail' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:4|confirmed',
+            'password' => 'required|string|min:4|',
+            'passwordconfirm'=> 'required|string|min:4|same:password'
+        ],[
+            'username.required' => '入力必須項目になります',
+            'mail.required' => '入力必須項目になります',
+            'password.required' => '入力必須項目になります',
+            'passwordconfirm.same' => '入力必須項目になります',
+            'mail.max' => '255字以内になります'
         ]);
     }
 
@@ -71,21 +78,34 @@ class RegisterController extends Controller
     }
 
 
-    // public function registerForm(){
-    //     return view("auth.register");
+    // public function registerForm()moji{
+    //     return view("auth.register")iti;
     // }
 
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
+            $validator=$this->validator($data);
 
-            $this->create($data);
-            return redirect('added');
+            if ($validator->fails() ) { //ログイン失敗
+                return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
+            }else{
+                $this->create($data);//ログイン成功
+                return redirect('added');
+            }
         }
         return view('auth.register');
     }
 
     public function added(){
-        return view('auth.added');
+
+        $username=\DB::table('users')
+        ->latest()
+        ->first();
+
+        return view('auth.added', compact('username'));
     }
+    
 }
